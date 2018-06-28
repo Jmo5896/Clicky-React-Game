@@ -11,17 +11,17 @@ class App extends Component {
   }
 
   
-  switchClick = () => {
+  // switchClick = () => {
     
-      this.setState({ score: this.state.score + 1}) ;
-      // this.setState({ score: newScore });
-      // let changeClick = this.state.clicked;
-      // this.setState(changeClick => {
-      //   images[0].clicked = true;
-      // });
+  //     this.setState({ score: this.state.score + 1}) ;
+  //     this.setState({ score: newScore });
+  //     let changeClick = this.state.clicked;
+  //     this.setState(changeClick => {
+  //       images[0].clicked = true;
+  //     });
     
     
-  }
+  // }
 
   render() {
     return (
@@ -46,7 +46,7 @@ class App extends Component {
                   id = {pic.id}
                   key = {pic.id}
                   image = {pic.image}
-                  onClick = {this.switchClick()}
+                 
                 />
               ))}
           </div>
