@@ -46,7 +46,7 @@ class App extends Component {
                   id = {pic.id}
                   key = {pic.id}
                   image = {pic.image}
-                 
+                  
                 />
               ))}
           </div>
