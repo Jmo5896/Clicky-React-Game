@@ -7,12 +7,35 @@ class App extends Component {
   state = {
     images: images,
     score: 0,
-    top_score: 0
+    top_score: 0,
+    clickedPics:[]
   }
   
+updateTS = score => {
+  if (score > this.state.top_score) {
+    return score;
+  } else {
+    return this.state.top_score;
+  }
+}
+
   clickPic = (e) => {
-    console.log(e.currentTarget.dataset.id);
-    this.setState({images: this.shufflePic(this.state.images)})
+    const userPick = e.currentTarget.dataset.id
+    console.log(userPick);
+    if (!this.state.clickedPics.includes(userPick)) {
+      this.setState({
+        clickPics: this.state.clickedPics.push(userPick),
+        score: this.state.score+1,
+        top_score: this.updateTS(this.state.score+1)
+      });
+    } else {
+      this.setState({
+        images: images,
+        score: 0,
+        clickedPics:[]
+      });
+    }
+    this.setState({images: this.shufflePic(this.state.images)});
   }
 
   shufflePic = (arr) => {
