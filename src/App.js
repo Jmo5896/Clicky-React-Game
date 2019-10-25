@@ -10,8 +10,18 @@ class App extends Component {
     top_score: 0
   }
   
-  clickPic(e) {
+  clickPic = (e) => {
     console.log(e.currentTarget.dataset.id);
+    this.setState({images: this.shufflePic(this.state.images)})
+  }
+
+  shufflePic = (arr) => {
+      for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+  
   }
   
   render() {
@@ -32,7 +42,7 @@ class App extends Component {
           </nav>
         <div className = 'container' >
           <div className = 'flex-container' id = 'parent'>
-              {images.map(pic => (
+              {this.state.images.map(pic => (
                 <div className = 'card' key = {pic.id}>  
                   <Picture 
                     id = {pic.id}
